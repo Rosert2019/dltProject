@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+
+{% block sidenav %}
+    <li>
+      <a href="/">About</a>
+    </li>
+{% endblock sidenav %}
+
+
+{% block content %}
+<h2>Please log In</h2>
+<hr>
+<p>You must be logged to download codes of projects</p>
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Log In</button>
+<p>Not registerd yet?  <a href="{% url 'signup' %}">Sign up here!</a></p>
+<input type="hidden" name="next" value="{{next}}">
+</form>
+{% endblock content %}
